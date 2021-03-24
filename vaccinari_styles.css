@@ -1,0 +1,12 @@
+#info{
+    font-size: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-indent: 25px;
+}
+#image{
+    width: 50%;
+    position: relative;
+    left: 200px;
+    top: 50px;
+}

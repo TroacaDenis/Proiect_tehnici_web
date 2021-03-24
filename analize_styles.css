@@ -1,0 +1,12 @@
+#info{
+    font-size: 30px;
+    padding-left: 50px;
+    padding-right: 25px;
+
+}
+#image{
+    width: 35%;
+    position: relative;
+    left: 200px;
+    top: 45px;
+}
