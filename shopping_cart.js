@@ -8,7 +8,7 @@ function create_cart(){
             for(i=0;i<data.length;i++){
                 let x=i;
                 ids.push(data[x].id);
-                let p=document.getElementById("pret_total");
+                let p=document.getElementById("pret-total");
                 p.innerHTML='Pret total: '+(parseInt(p.innerHTML.substr(12,p.innerHTML.length))+data[x].pret*data[x].qty);
                 let auxdiv=document.createElement("div");
                 auxdiv.className="shop-item";
@@ -50,4 +50,3 @@ function delete_cart(){
         })
     }
 }
-window.addEventListener('beforeunload',delete_cart());

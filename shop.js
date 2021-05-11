@@ -21,7 +21,6 @@ function adauga_in_cos(x){
     }
     else{
         if(stock[x]==items[x].children[3].innerHTML){
-            items[x].children[5].removeEventListener("click",function(){adauga_in_cos(x)});
             items[x].children[5].addEventListener("mouseover",function(){items[x].children[5].innerHTML="Indisponibil";});
             items[x].children[5].addEventListener("mouseout",function(){items[x].children[5].innerHTML="Adauga in cos";});
         }
@@ -32,7 +31,8 @@ function adauga_in_cos(x){
         else{
             comenzi[x]=parseInt(items[x].children[3].innerHTML); 
             add_order(x);
-        }        
+        }  
+        modify_stock(x);      
         stock[x]-=items[x].children[3].innerHTML;
         items[x].children[3].innerHTML=0;
     }
@@ -65,6 +65,26 @@ function modify_order(x){
     }
     let aux=x+1;
     fetch('http://localhost:3000/orders/'+aux, {
+        method: 'put', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(new_order)
+    }).then(function(response) {
+        console.log(response);
+    })
+}
+
+function modify_stock(x){
+    let items=document.getElementsByClassName("shop-item");
+    let new_order={
+        id: x+1,
+        qty: stock[x]-items[x].children[3].innerHTML,
+        info: items[x].children[0].innerHTML,
+        pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
+    }
+    let aux=x+1;
+    fetch('http://localhost:3000/products/'+aux, {
         method: 'put', 
         headers: {
             'Content-Type': 'application/json'

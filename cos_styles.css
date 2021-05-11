@@ -38,6 +38,16 @@
   
 
 
+#back-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#back-button{
+    font-size: 200%;
+    
+}
+
 
 
 #footer{
