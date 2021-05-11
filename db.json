@@ -37,5 +37,18 @@
       "pret": 96
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": 1,
+      "qty": 3,
+      "info": "Hrana umeda pentru pisici Whiskas Multipack Selectie de carne in sos, 12x100g",
+      "pret": 19
+    },
+    {
+      "id": 2,
+      "qty": 5,
+      "info": "Hrana umeda pentru pisici Royal Canin, Sterilised, in sos, 12x85g",
+      "pret": 51
+    }
+  ]
 }

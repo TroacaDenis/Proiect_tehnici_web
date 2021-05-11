@@ -75,7 +75,7 @@ function modify_order(x){
     })
 }
 
-///afiseaza bunurile ce pot fi cumparate
+///afiseaza item-urile ce pot fi cumparate
 function create_orders(){
     fetch('http://localhost:3000/products', {
     method: 'get'
