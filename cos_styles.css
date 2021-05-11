@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  
+  
+.grid-container{
+    display: grid;
+    height: 150vh;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+   
+  
+#header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+#menu{
+    grid-column-start: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.menu-item{
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 40px ;
+    color: aliceblue;
+    background-color: #3366ff;
+    font-size: 23px;
+    font-family: 'Open Sans', sans-serif;
+}
+#logo{
+    width: 30%;
+    height: 100%;
+    text-align: left;
+}
+  
+
+
+
+
+#footer{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    background-color: #404040;
+}
+.footer-item{
+    padding: 20px;
+    color: aliceblue;
+}
+#trademark{
+    text-align: right;
+}
+#webdesigner{
+    grid-column-start: 3;
+    text-align: left;
+}
+
+  

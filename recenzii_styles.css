@@ -1,0 +1,308 @@
+@media only screen and (min-width: 1280px) {
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  
+  
+    .grid-container{
+      display: grid;
+      height: 150vh;
+      grid-template-rows: 1fr 10fr 1fr;
+    }
+   
+  
+    #header{
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+    }
+    #menu{
+      grid-column-start: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .menu-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 40px ;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 23px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #logo{
+      width: 30%;
+      height: 100%;
+      text-align: left;
+    }
+  
+  
+    #main{
+      display: grid;
+      grid-template-rows:4fr 5fr;
+      grid-template-columns: 1fr 7fr;
+    }
+    #image-container{
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+  
+    }
+    #image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height:100%;
+      width: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+  
+    }
+    #sidebar{
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    .sidebar-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 80px;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 26px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #info{
+      grid-row-start: 2;
+      grid-column-start:2 ;
+    }
+  
+  
+    #footer{
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr;
+      background-color: #404040;
+    }
+    .footer-item{
+      padding: 20px;
+      color: aliceblue;
+    }
+    #trademark{
+      text-align: right;
+    }
+    #webdesigner{
+      grid-column-start: 3;
+      text-align: left;
+    }
+  }
+  
+  
+  @media screen and (min-width: 768px) and (max-width: 1280px){
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  
+  
+    .grid-container{
+      display: grid;
+      height: 150vh;
+      grid-template-rows: 1fr 10fr 1fr;
+    }
+   
+  
+    #header{
+      display: grid;
+      grid-template-columns: 2fr 0.2fr 2fr;
+    }
+    #menu{
+      grid-column-start: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .menu-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 40px ;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 23px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #logo{
+      width: 23%;
+      height: 100%;
+      text-align: left;
+    }
+  
+  
+    #main{
+      display: grid;
+      grid-template-rows:4fr 5fr;
+      grid-template-columns: 1fr 7fr;
+    }
+    #image-container{
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+  
+    }
+    #image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height:100%;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+  
+    }
+    #sidebar{
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    .sidebar-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 80px;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 26px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #info{
+      grid-row-start: 2;
+      grid-column-start:2 ;
+    }
+  
+  
+    #footer{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      background-color: #404040;
+    }
+    .footer-item{
+      padding: 20px;
+      color: aliceblue;
+    }
+    #trademark{
+      text-align: right;
+    }
+    #webdesigner{
+      grid-column-start: 3;
+      text-align: left;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 0px) and (max-width: 768px){
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  
+  
+    .grid-container{
+      display: grid;
+      height: 150vh;
+      grid-template-rows: 1fr 10fr 1fr;
+    }
+   
+  
+    #header{
+      display: grid;
+      grid-template-columns: 5fr 0fr 20fr;
+    }
+    #menu{
+      grid-column-start: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .menu-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 50px;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #logo{
+      width: 80%;
+      height: 100%;
+      text-align: left;
+    }
+  
+  
+    #main{
+      display: grid;
+      grid-template-rows:1fr 0.1fr 1.5fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #image-container{
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 1;
+      grid-column-end: 5;
+  
+    }
+    #image{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height:100%;
+      width: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+  
+    }
+    #sidebar{
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .sidebar-item{
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      color: aliceblue;
+      background-color: #3366ff;
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #info{
+      grid-row-start: 3;
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+  
+  
+    #footer{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      background-color: #404040;
+    }
+    .footer-item{
+      padding: 20px;
+      color: aliceblue;
+    }
+    #trademark{
+      text-align: right;
+    }
+    #webdesigner{
+      grid-column-start: 3;
+      text-align: left;
+    }
+  }
+  
+  
+  

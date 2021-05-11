@@ -1,0 +1,40 @@
+{
+    "products":[
+        {
+            "id":1,
+            "qty":100,
+            "info":"Hrana umeda pentru pisici Whiskas Multipack Selectie de carne in sos, 12x100g",
+            "pret":19
+        },
+        {
+            "id":2,
+            "qty":0,
+            "info":"Hrana umeda pentru pisici Royal Canin, Sterilised, in sos, 12x85g",
+            "pret":51
+        },
+        {
+            "id":3,
+            "qty":32,
+            "info":"Hrana uscata pentru pisici Royal Canin, Sterilised 37, 2kg",
+            "pret":73
+        },
+        {
+            "id":4,
+            "qty":10,
+            "info":"Hrana uscata pentru pisici Whiskas, Pui, 14Kg",
+            "pret":134
+        },
+        {
+            "id":5,
+            "qty":4,
+            "info":"Hrana umeda pentru caini Pedigree Junior, 12x100g",
+            "pret":18
+        },
+        {
+            "id":6,
+            "qty":22,
+            "info":"Hrana uscata pentru caini Pedigree Adult, Vita & Pasare, 15 Kg",
+            "pret":96
+        }
+    ]
+}
