@@ -14,7 +14,7 @@ function create_cart(){
                 auxdiv.className="shop-item";
 
                 let auxqty=document.createElement("p");
-                auxqty.innerHTML=data[x].qty;
+                auxqty.innerHTML=data[x].qty+'x';
                 auxqty.className="cantitate";
                 auxdiv.appendChild(auxqty);
 

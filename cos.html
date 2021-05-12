@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="comanda_styles.css">
+  <link rel="stylesheet" href="cos_styles.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   <style>
@@ -22,11 +22,13 @@
     </header>
     <div class="grid-item" id="main">
       <div id="back-div">
-        <button id="back-button"><a href="comanda.html">Inapoi la cumparaturi</a></button>
+        <button id="back-button"><a href="comanda.html" style="color: black;">Inapoi la cumparaturi</a></button>
       </div>
       <div class="grid-item" id="main_cos"></div>
       <p id="pret-total">Pret total: 0</p>
-      <button onclick="delete_cart()">Finalizeaza comanda</button>
+      <div id="finalizeaza-div">
+        <button id="finalizeaza-button"onclick="delete_cart()">Finalizeaza comanda</button>
+      </div>
 
     </div>
     <footer class="grid-item" id="footer">

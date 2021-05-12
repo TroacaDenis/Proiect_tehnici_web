@@ -41,8 +41,6 @@
 
 #main{
     display: grid;
- 
-    grid-gap: 50px;
     padding-top: 200px;
     padding-bottom: 50px;
     padding-left: 70px;
@@ -78,11 +76,11 @@
 }
 #cos-div{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 #cos-button{
-    font-size: 200%;
+    font-size: 250%;
 }
 
 
