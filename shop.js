@@ -31,8 +31,7 @@ function adauga_in_cos(x){
         else{
             comenzi[x]=parseInt(items[x].children[3].innerHTML); 
             add_order(x);
-        }  
-        modify_stock(x);      
+        }       
         stock[x]-=items[x].children[3].innerHTML;
         items[x].children[3].innerHTML=0;
     }
@@ -52,7 +51,6 @@ function add_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        console.log(response);
     })
 }
 function modify_order(x){
@@ -71,10 +69,10 @@ function modify_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        console.log(response);
+        modify_stock(x);
     })
 }
-
+///modify cantitatea din stock a unui item
 function modify_stock(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
@@ -92,6 +90,21 @@ function modify_stock(x){
         body: JSON.stringify(new_order)
     }).then(function(response) {
         console.log(response);
+    })
+}
+
+///verifica daca exista deja elemente in cos
+function get_cos_existent(){
+    fetch('http://localhost:3000/orders', {
+    method: 'get'
+    }).then(function(response) {
+        response.json().then((data) => {
+            let i;
+            for(i=0;i<data.length;i++){
+                let x=i;
+                comenzi[data[x].id-1]=data[x].qty;
+            }
+        })
     })
 }
 
@@ -148,23 +161,8 @@ function create_orders(){
 
                 document.getElementById("main").appendChild(auxdiv);
             }
+            get_cos_existent();
         })
     })
 }
 create_orders();
-
-///verifica daca exista deja elemente in cos
-function get_cos_existent(){
-    fetch('http://localhost:3000/orders', {
-    method: 'get'
-    }).then(function(response) {
-        response.json().then((data) => {
-            let i;
-            for(i=0;i<data.length;i++){
-                let x=i;
-                comenzi[data[x].id-1]=data[x].qty;
-            }
-        })
-    })
-}
-get_cos_existent();

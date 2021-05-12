@@ -35,18 +35,20 @@ function create_cart(){
 }
 create_cart();
 
-function delete_cart(){
-    let items=document.getElementsByClassName("shop-item");
-    let i;
-    for(i=0;i<ids.length;i++){
-        let x=i;
-        fetch('http://localhost:3000/orders/' + ids[x], {
-            method: 'delete',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function(response) {
+function delete_cart(x){
+    fetch('http://localhost:3000/orders/' + ids[x], {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function(response) {
+        if(x==ids.length-1)
             window.location.reload(); 
-        })
-    }
+        else{
+            x+=1;
+            delete_cart(x);
+        }
+    })
+    
+    
 }
