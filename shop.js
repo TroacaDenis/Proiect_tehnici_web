@@ -51,6 +51,7 @@ function add_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
+        modify_stock(x);
     })
 }
 function modify_order(x){
