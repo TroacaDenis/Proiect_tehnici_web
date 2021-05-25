@@ -1,6 +1,28 @@
 let stock=[];
 let comenzi=[];
 
+function add_product(x,y,z){
+    let new_product={
+        qty: x,
+        info: y,
+        pret: z
+    }
+    fetch('http://localhost:3000/products', {
+        method: 'post', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(new_product)
+    }).then(function(response) {
+    })
+}
+//add_product(89,"Hrana umeda pentru pisici Whiskas Multipack Selectie de carne in sos, 12x100g",19);
+//add_product(1,"Hrana umeda pentru pisici Royal Canin, Sterilised, in sos, 12x85g",51);
+//add_product(120,"Hrana uscata pentru pisici Royal Canin, Sterilised 37, 2kg",73);
+//add_product(40,"Hrana uscata pentru pisici Whiskas, Pui, 14Kg",134);
+//add_product(69,"Hrana umeda pentru caini Pedigree Junior, 12x100g",18);
+//add_product(37,"Hrana uscata pentru caini Pedigree Adult, Vita &amp; Pasare, 15 Kg",96);
+
 function plus(i){
     let items=document.getElementsByClassName("shop-item");
     items[i].children[3].innerHTML=parseInt(items[i].children[3].innerHTML)+1;
@@ -39,7 +61,6 @@ function adauga_in_cos(x){
 function add_order(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        id: x+1,
         qty: comenzi[x],
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
@@ -51,13 +72,12 @@ function add_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        modify_stock(x);
+        ///modify_stock(x);
     })
 }
 function modify_order(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        id: x+1,
         qty: comenzi[x],
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
@@ -70,14 +90,13 @@ function modify_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        modify_stock(x);
+        ///modify_stock(x);
     })
 }
-///modify cantitatea din stock a unui item
+///modifica cantitatea din stock a unui item
 function modify_stock(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        id: x+1,
         qty: stock[x]-items[x].children[3].innerHTML,
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
@@ -162,7 +181,7 @@ function create_orders(){
 
                 document.getElementById("main").appendChild(auxdiv);
             }
-            get_cos_existent();
+            ///get_cos_existent();
         })
     })
 }
