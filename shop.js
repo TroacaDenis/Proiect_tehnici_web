@@ -1,4 +1,6 @@
 let stock=[];
+let prod_ids=[];
+let prod_desc=[];
 let comenzi=[];
 
 function add_product(x,y,z){
@@ -46,22 +48,32 @@ function adauga_in_cos(x){
             items[x].children[5].addEventListener("mouseover",function(){items[x].children[5].innerHTML="Indisponibil";});
             items[x].children[5].addEventListener("mouseout",function(){items[x].children[5].innerHTML="Adauga in cos";});
         }
-        if(typeof comenzi[x]==='number'){
-            comenzi[x]+=parseInt(items[x].children[3].innerHTML);
-            modify_order(x);
-        }
-        else{
-            comenzi[x]=parseInt(items[x].children[3].innerHTML); 
-            add_order(x);
-        }       
-        stock[x]-=items[x].children[3].innerHTML;
-        items[x].children[3].innerHTML=0;
+        fetch('http://localhost:3000/orders', {
+        method: 'get'
+        }).then(function(response) {
+            response.json().then((data) => {
+                let i;
+                let ok=0;
+                for(i=0;i<data.length;i++){
+                    let k=i;
+                    if(data[k].info == prod_desc[x]){
+                        ok=1;
+                        break;
+                    }
+                }
+                if(ok==1)
+                    modify_order(x,data[i]);
+                else
+                    add_order(x);
+            })
+        })    
+        
     }
 }
 function add_order(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        qty: comenzi[x],
+        qty: parseInt(items[x].children[3].innerHTML),
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
     }
@@ -72,37 +84,41 @@ function add_order(x){
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        ///modify_stock(x);
+        stock[x]-=items[x].children[3].innerHTML;
+        items[x].children[3].innerHTML=0;
+        modify_stock(x);
     })
 }
-function modify_order(x){
+function modify_order(x,old_order){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        qty: comenzi[x],
+        qty: old_order.qty + parseInt(items[x].children[3].innerHTML),
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
     }
     let aux=x+1;
-    fetch('http://localhost:3000/orders/'+aux, {
+    fetch('http://localhost:3000/orders/'+old_order.id, {
         method: 'put', 
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(new_order)
     }).then(function(response) {
-        ///modify_stock(x);
+        stock[x]-=items[x].children[3].innerHTML;
+        items[x].children[3].innerHTML=0;
+        modify_stock(x);
     })
 }
+
 ///modifica cantitatea din stock a unui item
 function modify_stock(x){
     let items=document.getElementsByClassName("shop-item");
     let new_order={
-        qty: stock[x]-items[x].children[3].innerHTML,
+        qty: stock[x],
         info: items[x].children[0].innerHTML,
         pret: parseInt(items[x].children[1].innerHTML.substr(0,items[x].children[1].innerHTML.length-11))
     }
-    let aux=x+1;
-    fetch('http://localhost:3000/products/'+aux, {
+    fetch('http://localhost:3000/products/'+prod_ids[x], {
         method: 'put', 
         headers: {
             'Content-Type': 'application/json'
@@ -110,21 +126,6 @@ function modify_stock(x){
         body: JSON.stringify(new_order)
     }).then(function(response) {
         console.log(response);
-    })
-}
-
-///verifica daca exista deja elemente in cos
-function get_cos_existent(){
-    fetch('http://localhost:3000/orders', {
-    method: 'get'
-    }).then(function(response) {
-        response.json().then((data) => {
-            let i;
-            for(i=0;i<data.length;i++){
-                let x=i;
-                comenzi[data[x].id-1]=data[x].qty;
-            }
-        })
     })
 }
 
@@ -138,6 +139,8 @@ function create_orders(){
             for(i=0;i<data.length;i++){
                 let x=i;
                 stock.push(data[x].qty);
+                prod_ids.push(data[x].id);
+                prod_desc.push(data[x].info);
                 let auxdiv=document.createElement("div");
                 auxdiv.className="shop-item";
 
@@ -181,7 +184,6 @@ function create_orders(){
 
                 document.getElementById("main").appendChild(auxdiv);
             }
-            ///get_cos_existent();
         })
     })
 }
